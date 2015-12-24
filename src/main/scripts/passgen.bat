@@ -1,27 +1,9 @@
-
-@REM ==== START VALIDATION ====
-
-
-
-@echo off
-
-IF  "%MyApp%"=="" GOTO A
+java -cp .;%MyApp%\conf\*;%MyApp%\lib\*  com.mycompany.app.App
+pause
 
 
-IF NOT "%MyApp%"=="" GOTO B
 
 
-:A
-
-java -jar ../lib/myapp-1.0-SNAPSHOT.jar %1 %2
-GOTO END
-
-
-:B
-java -jar %MyApp%/lib/myapp-1.0-SNAPSHOT.jar %1 %2
-GOTO END
-
-:END
 
 
 

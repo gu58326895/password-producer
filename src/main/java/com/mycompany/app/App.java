@@ -5,6 +5,8 @@ import java.util.Properties;
 
 import java.util.Random;
 import java.util.Scanner;
+
+import com.google.common.base.CaseFormat;
 import com.google.common.math.*;
 
 /**
@@ -36,17 +38,25 @@ public class App
         this.num=num ;
     }
 
+
+
     public  String genRandomNum(){
 
-       int  pwd_len =num ;
-       // File f = new File("src/main/resources/application.properties");
+
+
+        String useGuava = CaseFormat.UPPER_UNDERSCORE.to(CaseFormat.LOWER_CAMEL,"CONSTANT_NAME");
+        System.out.println("代表我用过Guava包了："+useGuava);
+        int  pwd_len =num ;
+
+
+
         InputStream in = null ;
-       // URL u =App.class.getClassLoader().getResource("application.properties");
-       // System.out.println(App.class.getClassLoader().getResource("application.properties"));
+
         try{
-            //in = new new BufferedInputStream(new FileInputStream(u));
+
             in =App.class.getClassLoader().getResourceAsStream("application.properties");
-            //in = new BufferedInputStream(new FileInputStream(f));
+            //in = new BufferedInputStream (new FileInputStream("application.properties"));
+
         }catch(Exception e)
         {
             e.printStackTrace();
